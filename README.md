@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🛍️ PazaRa - Modern E-Ticaret Platformu
 
 > Yemek, giyim ve genel alışverişi tek platformda birleştiren modern marketplace sistemi.
