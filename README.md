@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🛍️ PazaRa - Modern E-Ticaret Platformu
 
 > Yemek, giyim ve genel alışverişi tek platformda birleştiren modern marketplace sistemi.
@@ -273,3 +274,6 @@ MIT License — © 2026 PazaRa
 ---
 
 **PazaRa** ile modern alışveriş deneyimini yaşayın! 🛍️
+=======
+# pazara-project
+>>>>>>> b88e71dbbf695198d4bc7364a57de21ef85eba47
