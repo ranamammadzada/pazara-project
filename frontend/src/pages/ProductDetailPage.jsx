@@ -67,12 +67,36 @@ const ProductDetailPage = () => {
   };
 
   const images = typeof p.images === 'string' ? JSON.parse(p.images || '[]') : (p.images || []);
-  const displayImages = images.length > 0 ? images : [
-    'https://images.unsplash.com/photo-1542291026-7eec264c27ff',
-'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519',
-'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
-  ];
+  
+  const productImages = {
+  'Nike Air Max 270': 'https://images.pexels.com/photos/8979071/pexels-photo-8979071.jpeg',
+  'Samsung Galaxy S24': 'https://images.pexels.com/photos/30466740/pexels-photo-30466740.jpeg',
+  "Levi's 501 Jean": 'https://images.unsplash.com/photo-1542272604-787c3835535d',
+  'Puma RS-X': 'https://images.pexels.com/photos/18202569/pexels-photo-18202569.jpeg',
 
+  'Margherita Pizza': 'https://images.pexels.com/photos/27793841/pexels-photo-27793841.jpeg',
+  'Cheeseburger': 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
+  'Sushi Set': 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c',
+  'Döner Kebap': 'https://images.pexels.com/photos/8213047/pexels-photo-8213047.jpeg',
+  'Apple AirPods Pro': 'https://images.pexels.com/photos/13034999/pexels-photo-13034999.jpeg',
+
+  'Zara Yazlık Elbise': 'https://images.pexels.com/photos/8441593/pexels-photo-8441593.jpeg',
+
+  'H&M Denim Ceket': 'https://images.pexels.com/photos/13662420/pexels-photo-13662420.jpeg',
+  'Adidas Ultraboost': 'https://images.pexels.com/photos/18188496/pexels-photo-18188496.jpeg',
+  'Çikolatalı Pasta': 'https://images.pexels.com/photos/37026352/pexels-photo-37026352.jpeg',
+
+  'Türk Kahvesi': 'https://images.pexels.com/photos/36823338/pexels-photo-36823338.jpeg',
+
+  'Kahvaltı Tabağı': 'https://images.pexels.com/photos/20002826/pexels-photo-20002826.jpeg',
+
+  'Sezar Salata': 'https://images.pexels.com/photos/1277481/pexels-photo-1277481.jpeg',
+ };
+  const displayImages =
+  images.length > 0
+    ? images
+    : [productImages[p.name] || 'https://via.placeholder.com/500'];
+    
   const handleAddToCart = () => {
     addToCart({ product_id: p.id, item_type: 'product', unit_price: p.price, item_name: p.name, quantity });
   };

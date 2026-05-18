@@ -26,20 +26,104 @@ const SearchPage = () => {
         ]);
         const products = prodRes.status === 'fulfilled' ? (prodRes.value.data.products || []).map(p => ({ ...p, item_type: 'product' })) : [];
         const foods = foodRes.status === 'fulfilled' ? (foodRes.value.data.foods || []).map(f => ({ ...f, item_type: 'food' })) : [];
-        setResults([...products, ...foods]);
+        const allProducts = [
+
+  ...products,
+  ...foods
+
+];
+
+const filtered = demoResults.filter(item =>
+  item.name?.toLowerCase().includes(query.toLowerCase()) ||
+  item.shop_name?.toLowerCase().includes(query.toLowerCase()) ||
+  item.restaurant_name?.toLowerCase().includes(query.toLowerCase())
+);
+
+
+
+setResults(filtered);
       } catch { } finally { setLoading(false); }
     };
     search();
   }, [query]);
 
   const demoResults = [
-    { id: 1, name: 'Nike Air Max 270', price: 1299, item_type: 'product', shop_name: 'Nike Store', rating: 4.8, discount_percent: 19, images: [] },
-    { id: 2, name: 'Margherita Pizza', price: 89, item_type: 'food', restaurant_name: 'Pizza Palace', rating: 4.7, discount_percent: 18, images: [] },
-    { id: 3, name: 'Adidas Ultraboost', price: 2499, item_type: 'product', shop_name: 'Adidas', rating: 4.9, discount_percent: 17, images: [] },
-    { id: 4, name: 'Samsung Galaxy S24', price: 29999, item_type: 'product', shop_name: 'Samsung', rating: 4.8, discount_percent: 14, images: [] },
-  ];
+  {
+    id: 1,
+    name: 'iPhone 15',
+    shop_name: 'Apple',
+    image: 'https://images.pexels.com/photos/16718604/pexels-photo-16718604.jpeg',
+    item_type: 'product',
+    price: 1299
+  },
+  {
+    id: 2,
+    name: 'Samsung S24',
+    shop_name: 'Samsung',
+    image: 'https://images.pexels.com/photos/30466740/pexels-photo-30466740.jpeg',
+    item_type: 'product',
+    price: 2499
+  },
+  {
+    id: 3,
+    name: 'MacBook Air',
+    shop_name: 'Apple',
+    image: 'https://images.pexels.com/photos/2148217/pexels-photo-2148217.jpeg',
+    item_type: 'product',
+    price: 3999
+  },
+  {
+    id: 4,
+    name: 'Nike Air Max',
+    shop_name: 'Nike',
+    image: 'https://images.pexels.com/photos/13034999/pexels-photo-13034999.jpeg',
+    item_type: 'product',
+    price: 1199
+  },
+  {
+    id: 5,
+    name: 'Adidas Ultraboost',
+    shop_name: 'Adidas',
+    image: 'https://images.pexels.com/photos/18188496/pexels-photo-18188496.jpeg',
+    item_type: 'product',
+    price: 899
+  },
+  {
+    id: 6,
+    name: 'Margherita Pizza',
+    restaurant_name: 'Pizza Palace',
+    image: 'https://images.pexels.com/photos/27793841/pexels-photo-27793841.jpeg',
+    item_type: 'food',
+    price: 89
+  },
+  {
+    id: 7,
+    name: 'Cheeseburger',
+    restaurant_name: 'Burger King',
+    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500',
+    item_type: 'food',
+    price: 65
+  },
+  {
+    id: 8,
+    name: 'Parfüm',
+    shop_name: 'Chanel',
+    image: 'https://images.pexels.com/photos/22589359/pexels-photo-22589359.jpeg',
+    item_type: 'product',
+    price: 349
+  },
+  {
+    id: 9,
+    name: 'Ruj Seti',
+    shop_name: 'Maybelline',
+    image: 'https://images.pexels.com/photos/25533534/pexels-photo-25533534.jpeg',
+    item_type: 'product',
+    price: 199
+  
+  }
+];
 
-  const displayResults = results.length > 0 ? results : (query ? demoResults : []);
+  const displayResults = results;
   const filtered = filter === 'all' ? displayResults : displayResults.filter(r => r.item_type === filter);
 
   return (
@@ -81,10 +165,7 @@ const SearchPage = () => {
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {filtered.map(item => {
-            const images = typeof item.images === 'string' ? JSON.parse(item.images || '[]') : (item.images || []);
-            const imageUrl = images[0] || (item.item_type === 'food'
-              ? `https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80`
-              : `https://picsum.photos/seed/${item.id}/400/400`);
+            const imageUrl = item.image;
             return (
               <article key={`${item.item_type}-${item.id}`} className="product-card group" onClick={() => navigate(`/${item.item_type === 'product' ? 'urun' : 'yemek'}/${item.id}`)}>
                 <div className="relative overflow-hidden aspect-square">

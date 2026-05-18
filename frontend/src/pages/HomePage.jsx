@@ -10,28 +10,28 @@ import { useLanguage } from '../context/LanguageContext';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 const productImages = {
-  'Nike Air Max 270': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff',
-  'Samsung Galaxy S24': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9',
+  'Nike Air Max 270': 'https://images.pexels.com/photos/8979071/pexels-photo-8979071.jpeg',
+  'Samsung Galaxy S24': 'https://images.pexels.com/photos/30466740/pexels-photo-30466740.jpeg',
   "Levi's 501 Jean": 'https://images.unsplash.com/photo-1542272604-787c3835535d',
-  'Puma RS-X': 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519',
+  'Puma RS-X': 'https://images.pexels.com/photos/18202569/pexels-photo-18202569.jpeg',
 
-  'Margherita Pizza': 'https://images.unsplash.com/photo-1513104890138-7c749659a591',
+  'Margherita Pizza': 'https://images.pexels.com/photos/27793841/pexels-photo-27793841.jpeg',
   'Cheeseburger': 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
   'Sushi Set': 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c',
-  'Döner Kebap': 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783',
-  'Apple AirPods Pro': 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46',
+  'Döner Kebap': 'https://images.pexels.com/photos/8213047/pexels-photo-8213047.jpeg',
+  'Apple AirPods Pro': 'https://images.pexels.com/photos/13034999/pexels-photo-13034999.jpeg',
 
-'Zara Yazlık Elbise': 'https://images.unsplash.com/photo-1496747611176-843222e1e57c',
+'Zara Yazlık Elbise': 'https://images.pexels.com/photos/8441593/pexels-photo-8441593.jpeg',
 
-'H&M Denim Ceket': 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab',
-'Adidas Ultraboost': 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500',
-'Çikolatalı Pasta': 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500',
+'H&M Denim Ceket': 'https://images.pexels.com/photos/13662420/pexels-photo-13662420.jpeg',
+'Adidas Ultraboost': 'https://images.pexels.com/photos/18188496/pexels-photo-18188496.jpeg',
+'Çikolatalı Pasta': 'https://images.pexels.com/photos/37026352/pexels-photo-37026352.jpeg',
 
-'Türk Kahvesi': 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500',
+'Türk Kahvesi': 'https://images.pexels.com/photos/36823338/pexels-photo-36823338.jpeg',
 
-'Kahvaltı Tabağı': 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500',
+'Kahvaltı Tabağı': 'https://images.pexels.com/photos/20002826/pexels-photo-20002826.jpeg',
 
-'Sezar Salata': 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=500',
+'Sezar Salata': 'https://images.pexels.com/photos/1277481/pexels-photo-1277481.jpeg',
 };
 
 // ─── Product Card ─────────────────────────────────────────────────────────────
@@ -192,8 +192,8 @@ const HomePage = () => {
           api.get('/categories'),
         ]);
 
-        if (productsRes.status === 'fulfilled') setTrendingProducts(productsRes.value.data.products || []);
-        if (foodsRes.status === 'fulfilled') setFeaturedFoods(foodsRes.value.data.foods || []);
+        if (productsRes.status === 'fulfilled') setTrendingProducts(demoItems || []);
+        if (foodsRes.status === 'fulfilled') setFeaturedFoods(demoItems || []);
         if (hashtagsRes.status === 'fulfilled') setTrendingHashtags(hashtagsRes.value.data.hashtags || []);
         if (aiRes.status === 'fulfilled') setAiRecs(aiRes.value.data.recommendations || []);
         if (catsRes.status === 'fulfilled') setCategories(catsRes.value.data.categories || []);
@@ -406,7 +406,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="relative rounded-3xl overflow-hidden h-48 md:h-64 group cursor-pointer" onClick={() => navigate('/kategori/erkek-giyim')}>
-            <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=600&q=80" alt="Erkek Giyim" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <img src="https://images.pexels.com/photos/32770731/pexels-photo-32770731.jpeg" alt="Erkek Giyim" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-transparent flex items-center p-6">
               <div>
                 <p className="text-blue-200 text-sm font-medium mb-1">Yeni Koleksiyon</p>
